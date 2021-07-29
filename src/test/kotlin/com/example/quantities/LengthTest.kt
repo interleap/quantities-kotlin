@@ -7,14 +7,11 @@ import io.kotest.matchers.shouldBe
 
 class LengthTest : StringSpec({
     "should be able to add to another length in metres" {
-        val lengthInMetres = Length(4.0, Metre)
-        lengthInMetres.add(Length(3.0, Metre)) shouldBe Length(7.0, Metre)
+        Length(4.0, Metre).add(Length(3.0, Metre)) shouldBe Length(7.0, Metre)
     }
 
     "should be able to add metres to centimetres" {
-        val length1 = Length(3.0, Metre)
-        val length2 = Length(50.0, Centimetre)
-        length1.add(length2) shouldBe Length(3.50, Metre)
+        Length(3.0, Metre).add(Length(50.0, Centimetre)) shouldBe Length(3.50, Metre)
     }
 
     "should be able to convert metres to centimetres" {
@@ -23,6 +20,10 @@ class LengthTest : StringSpec({
 
     "should be able to convert centimetres to metres" {
         Length(550.0, Centimetre).to(Metre) shouldBe Length(5.50, Metre)
+    }
+
+    "should be able to add centimetres to metres" {
+        Length(340.0, Centimetre).add(Length(0.60, Metre)) shouldBe Length(400.0, Centimetre)
     }
 
 })
