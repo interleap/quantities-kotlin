@@ -9,6 +9,8 @@ data class Length(val value: Double, val unit: Unit) {
         return Length(convertedValue + this.value, Unit.Metre)
     }
 
+    fun to(targetUnit: Unit) : Length = Length((value * unit.scale) / targetUnit.scale, targetUnit)
+
     override fun equals(other: Any?): Boolean {
         if (javaClass != other?.javaClass) return false
         other as Length
@@ -18,6 +20,7 @@ data class Length(val value: Double, val unit: Unit) {
     override fun hashCode(): Int = value.roundTo3Decimals().hashCode()
 }
 
-enum class Unit {
-    Metre, Centimetre
+enum class Unit(val scale: Int) {
+    Metre (100),
+    Centimetre (1)
 }
