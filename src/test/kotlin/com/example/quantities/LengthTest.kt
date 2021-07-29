@@ -3,9 +3,9 @@ package com.example.quantities
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 
-class MetreTest : StringSpec({
+class LengthTest : StringSpec({
     "should be able to add to another length in metres" {
-        val lengthInMetres = Metre(4.0)
-        lengthInMetres.add(Metre(3.0)) shouldBe Metre(7.0)
+        val lengthInMetres = Length(4.0)
+        lengthInMetres.add(Length(3.0)) shouldBe Length(7.0)
     }
 })

@@ -1,13 +1,13 @@
 package com.example.quantities
 
-data class Metre(val value: Double) {
-    fun add(metre: Metre): Metre {
-        return Metre(metre.value + this.value)
+data class Length(val value: Double) {
+    fun add(length: Length): Length {
+        return Length(length.value + this.value)
     }
 
     override fun equals(other: Any?): Boolean {
         if (javaClass != other?.javaClass) return false
-        other as Metre
+        other as Length
         return (value.roundTo3Decimals() == (other.value).roundTo3Decimals())
     }
 
